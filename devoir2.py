@@ -14,38 +14,38 @@ n=0
 
 
 
-for ligne in document:
+for subvention in document:
 
 #si le programme apparait dans les éléments des listes des subventions, on veut la date et la ligne (subvention)
 #j'affiche aussi le programme à part, pour pouvoir ajouter une autre colonne dans le nouveau fichier et les trier selon le programme
 		
-
-	if any(editeurs in element for subvention in ligne):
+#https://stackoverflow.com/questions/4843158/check-if-a-python-list-item-contains-a-string-inside-another-string
+	if any(editeurs in element for element in subvention):
 		
-		date = ligne[13]
+		date = subvention[13]
 		annee = date.split("-")
 		n+=1
 		print("-" * 100)
-		print(n,annee[0], ligne)
+		print(n,annee[0], subvention)
 		print(editeurs)
 	
 
-	if any(innovation in element for subvention in ligne):
+	if any(innovation in element for element in subvention):
 
-		date = ligne[13]
+		date = subvention[13]
 		annee = date.split("-")
 		n+=1
 		
 		print("-" * 100)
-		print(n,annee[0], ligne)
+		print(n,annee[0], subvention)
 		print(innovation)
 
 
-	if any(initiative in element for subvention in ligne):
-		date = ligne[13]
+	if any(initiative in element for element in subvention):
+		date = subvention[13]
 		annee = date.split("-")
 		n+=1
 			
 		print("-" * 100)
-		print(n,annee[0], ligne)
+		print(n,annee[0], subvention)
 		print(initiative)
